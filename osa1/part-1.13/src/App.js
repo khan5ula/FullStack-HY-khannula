@@ -1,5 +1,11 @@
 import { useState } from 'react'
 
+const Result = (props) => {
+  return (
+    <div>This anecdote has {props.points[props.selected]} points</div>
+  )
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -30,6 +36,8 @@ const App = () => {
     <div>
       {anecdotes[selected]}
       <br /><br />
+      <Result selected={selected} points={points}></Result>
+      <br />
       <button onClick={handleVote}>vote</button>
       <button onClick={handleAnecdote}>next anecdote</button>
     </div>
